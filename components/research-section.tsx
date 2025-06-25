@@ -56,7 +56,7 @@ export function ResearchSection() {
                   </div>
                   <h4 className="font-semibold text-gray-900 mb-3 text-lg">
                     Visual-Qwen & Sludge-Qwen:
-                    Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize "Sludge Content" from Short Form Videos
+                    Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &rdquo;Sludge Content&rdquo; from Short Form Videos
                   </h4>
                   <p className="text-sm text-gray-600 mb-4">FEU Institute of Technology - Computer Science Thesis</p>
 

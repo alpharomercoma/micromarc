@@ -107,7 +107,7 @@ export function CollaboratorsSection() {
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Interested in Collaborating?</h3>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              We're always looking for new partnerships with organizations that share our mission of creating healthier
+              We&apos;re always looking for new partnerships with organizations that share our mission of creating healthier
               digital environments through AI innovation.
             </p>
           </div>

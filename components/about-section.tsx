@@ -35,7 +35,7 @@ export function AboutSection() {
             Advancing Digital Wellness Through AI Research
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Founded by computer science students at FEU Institute of Technology, we're developing cutting-edge solutions
+            Founded by computer science students at FEU Institute of Technology, we&apos;re developing cutting-edge solutions
             to combat the degradation of online discourse and critical thinking.
           </p>
         </div>
@@ -50,7 +50,7 @@ export function AboutSection() {
                 psychology to understand and address the root causes of neurodegenerative online content.
               </p>
               <p>
-                Through rigorous academic methodology and open-source development, we're building transparent,
+                Through rigorous academic methodology and open-source development, we&apos;re building transparent,
                 accountable AI systems that can be audited and improved by the global research community.
               </p>
             </div>
