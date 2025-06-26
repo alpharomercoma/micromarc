@@ -32,8 +32,8 @@ interface AnalysisResult {
 }
 
 // Video constraints
-const MAX_VIDEO_DURATION = 300; // seconds (5 minutes)
-const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100 MB in bytes
+const MAX_VIDEO_DURATION = 60; // seconds (1 minute)
+const MAX_VIDEO_SIZE = 50 * 1024 * 1024; // 50 MB in bytes
 const SUPPORTED_FORMAT = "video/mp4";
 
 export default function UploadSection() {
@@ -352,7 +352,6 @@ export default function UploadSection() {
             <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl pointer-events-none" />
 
-
             <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
                 {/* Section header */}
                 <div className="text-center mb-12">
@@ -365,7 +364,7 @@ export default function UploadSection() {
                     </p>
                 </div>
             </div>
-            <section id="upload" className="px-4 md:px-8 max-w-4xl mx-auto relative">
+            <section id="upload" className="px-4 md:px-8 max-w-4xl mx-auto relative mb-10">
                 <LoadingFacts
                     isVisible={showLoadingOverlay}
                     uploadProgress={activeTab === "link" && uploadStatus === "downloading" ? downloadProgress : uploadProgress}
@@ -524,7 +523,7 @@ export default function UploadSection() {
                             </div>
 
                             <div className="mt-6 text-center text-sm text-gray-500">
-                                <p>Supported format: MP4 only (Max size: 100MB, Max duration: 5 minutes)</p>
+                                <p>Supported format: MP4 only (Max size: 50MB, Max duration: 1 minute)</p>
                             </div>
                         </TabsContent>
 

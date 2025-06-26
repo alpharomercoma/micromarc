@@ -17,19 +17,6 @@ export function SponsorsSection() {
     },
   ];
 
-  const getTierColor = (tier: string) => {
-    switch (tier) {
-      case "Platinum":
-        return "bg-purple-100 text-purple-800";
-      case "Gold":
-        return "bg-yellow-100 text-yellow-800";
-      case "Silver":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-orange-100 text-orange-800";
-    }
-  };
-
   return (
     <section id="sponsors" className="py-16 bg-white relative overflow-hidden">
       {/* Strategic gradient blob */}
@@ -48,7 +35,7 @@ export function SponsorsSection() {
         </div>
 
         {/* Responsive sponsors grid with flexible logo sizes */}
-        <div className="grid lg:grid-cols-3 gap-8 items-center mb-8">
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-8">
           {sponsors.map((sponsor, index) => (
             <Card
               key={index}

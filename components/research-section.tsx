@@ -27,10 +27,6 @@ export function ResearchSection() {
 
         {/* Key Publication with preview - better use of space */}
         <div className="bg-white rounded-xl p-6 shadow-sm">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold text-gray-900">Key Publication</h3>
-          </div>
-
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Publication preview image */}
             <div className="lg:col-span-1">
@@ -48,9 +44,9 @@ export function ResearchSection() {
                       <Badge variant="outline" className="text-xs">
                         Thesis
                       </Badge>
-                      <Badge className="bg-green-100 text-green-800 text-xs">Published</Badge>
+                      <Badge variant="secondary" className="bg-yellow-100 text-yellow-800 text-xs">Pending Publication</Badge>
                     </div>
-                    <span className="text-sm text-gray-500">2024</span>
+                    <span className="text-sm -500">2025</span>
                   </div>
                   <h4 className="font-semibold text-gray-900 mb-3 text-lg">
                     Visual-Qwen & Sludge-Qwen:
@@ -63,10 +59,12 @@ export function ResearchSection() {
                       <span className="font-medium">Key Contributions:</span>
                     </div>
                     <ul className="text-sm text-gray-600 space-y-1 ml-4">
-                      <li>• Novel multimodal architecture for content classification</li>
-                      <li>• Ethically sourced dataset with 2K+ labeled samples</li>
-                      <li>• Real-time processing with sub-50ms latency</li>
-                      <li>• Validated by 50+ domain experts</li>
+                      <li>• Open-source 6k human-model-annotated expert-validated multimodal dataset of short-form videos of sludge & non-sludge content</li>
+                      <li>• Multimodal architecture that leverages attention mechanisms and integrates video and textual features</li>
+                      <li>• Pre-trained Vision-Language Model (Visual-Qwen) that can be fine tuned on various datasets</li>
+                      <li>• Fine tuned model (Sludge-Qwen) for detecting sludge and non-sludge content from short-form videos</li>
+                      <li>• Study in tackling a modern global digital problem with High Acceptance from target audience and experts</li>
+                      <li>• TPU training methodology at FEU Institute of Technology</li>
                     </ul>
                   </div>
 
