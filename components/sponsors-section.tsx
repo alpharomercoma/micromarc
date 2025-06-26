@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function SponsorsSection() {
   const sponsors = [
@@ -48,7 +48,7 @@ export function SponsorsSection() {
         </div>
 
         {/* Responsive sponsors grid with flexible logo sizes */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid lg:grid-cols-3 gap-8 items-center mb-8">
           {sponsors.map((sponsor, index) => (
             <Card
               key={index}

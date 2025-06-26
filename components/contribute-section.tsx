@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, MessageSquare, TestTube, Users, ExternalLink, Star, GitFork, Eye } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ExternalLink, Eye, GitFork, Github, MessageSquare, Star, TestTube, Users } from "lucide-react";
 
 export function ContributeSection() {
   const contributionWays = [

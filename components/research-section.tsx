@@ -1,7 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Download, ExternalLink, Eye } from "lucide-react";
 import Image from "next/image";
 
 export function ResearchSection() {

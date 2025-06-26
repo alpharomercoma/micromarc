@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/about-section";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
 import { Navigation } from "@/components/navigation";
+import UploadSection from "@/components/upload-section";
 import { ResearchSection } from "@/components/research-section";
 import { SponsorsSection } from "@/components/sponsors-section";
 import { TargetAudienceSection } from "@/components/target-audience-section";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <AboutSection />
+        <UploadSection />
         <ResearchSection />
         <TimelineSection />
         <TeamSection />

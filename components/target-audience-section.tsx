@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Heart, Video, Brain, Shield, Smartphone, Code } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Brain, Building2, Code, Heart, Shield, Smartphone, Video } from "lucide-react";
 
 export function TargetAudienceSection() {
   const targetAudiences = [

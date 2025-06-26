@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Rocket, Database, Cpu, Users, Zap, Smartphone, Globe, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ChevronDown, ChevronUp, Cpu, Database, Globe, Rocket, Smartphone, TrendingUp, Users, Zap } from "lucide-react";
+import { useState } from "react";
 import { IoIosStats } from "react-icons/io";
 
 export function TimelineSection() {

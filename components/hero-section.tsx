@@ -1,18 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Play, Download } from "lucide-react";
-import { BookOpen } from "lucide-react";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Download } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 export function HeroSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   return (
     <section id="home" className="relative pt-16 pb-20 overflow-hidden">
       {/* Enhanced gradient background with blobs */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white pointer-events-none" />
 
       {/* Modern gradient blobs */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse" />

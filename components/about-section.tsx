@@ -7,7 +7,7 @@ export function AboutSection() {
     { icon: Brain, title: "Transfer Learning", description: "Augmented tools built on top of industry-leading models" },
     { icon: Shield, title: "Content Protection", description: "Moderation of harmful, explicit, and uneducational content" },
     {
-      icon: Zap, title: "Edge Computing", description: "Real-time, low-latency inference anywhere, anytime"
+      icon: Zap, title: "High-Performance Computing", description: "Trained and hosted on powerful Google Cloud TPUs & NVIDIA GPUs"
     },
     { icon: Target, title: "Precision Filtering", description: "High accuracy, customizable, and critical content analysis" },
   ];
