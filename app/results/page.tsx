@@ -485,7 +485,7 @@ export default function ResultsPage() {
                             <CardContent>
                                 <div className="relative">
                                     <p className="text-xs text-gray-600 font-mono bg-gray-50 p-3 rounded pr-10">
-                                        Coma, A.R., Olata, M., Ong, J.I., Sioson, K.I. (2025). Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &rdquo;Sludge&rdquo; Videos From Short-Form Content.
+                                        Olata, M., Coma, A.R., Ong, J.I., Sioson, K.I., Pura, J.J., Ambat, S. (2025). Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &ldquo;Sludge&rdquo; Videos from Short-Form Content.
                                     </p>
                                     <Button
                                         variant="ghost"
@@ -493,7 +493,7 @@ export default function ResultsPage() {
                                         className="absolute top-2 right-2 h-8 w-8 text-gray-500 hover:text-gray-700 hover:bg-gray-100"
                                         onClick={() => {
                                             navigator.clipboard.writeText(
-                                                'Coma, A.R., Olata, M., Ong, J.I., Sioson, K.I. (2025). Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize "Sludge" Videos From Short-Form Content.',
+                                                'Olata, M., Coma, A.R., Ong, J.I., Sioson, K.I., Pura, J.J., Ambat, S. (2025). Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize "Sludge" Videos from Short-Form Content.',
                                             );
                                             // You could add a toast notification here
                                         }}

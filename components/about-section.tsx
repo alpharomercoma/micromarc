@@ -58,7 +58,7 @@ export function AboutSection() {
             <div className="flex items-center gap-4 mt-6">
               <div className="flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">Peer-Reviewed Research</span>
+                <span className="text-sm font-medium text-gray-700">Academic Research</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-indigo-600" />

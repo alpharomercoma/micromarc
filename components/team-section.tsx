@@ -5,7 +5,7 @@ export function TeamSection() {
   const teamMembers = [
     {
       name: "Justine Jude Pura",
-      role: "Advisor",
+      role: "Project Mentor",
       image: "/images/team/pura.jpg",
     },
     {

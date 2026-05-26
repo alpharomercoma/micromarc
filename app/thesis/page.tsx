@@ -14,22 +14,22 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12 max-w-4xl mt-20">
         {/* Title */}
         <h1 className="text-4xl text-balance md:text-5xl font-bold text-center mb-8 text-gray-900 leading-tight">
-          Visual-Qwen & Sludge-Qwen:
+          Visual-Qwen
         </h1>
 
         <h2 className="text-2xl md:text-3xl text-center mb-8 text-gray-700 leading-relaxed">
-          Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &rdquo;Sludge Content&rdquo; from Short Form Videos
+          Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &ldquo;Sludge&rdquo; Videos from Short-Form Content
         </h2>
 
         {/* Authors */}
         <div className="text-center mb-6">
           <p className="text-2xl text-blue-600 mb-2">
             <span className="font-medium">
-              <a href="https://linkedin.com/in/alpharomercoma" target="_blank" rel="noopener noreferrer">
-                Alpha Romer Coma
-              </a>,{" "}
               <a href="#" target="_blank" rel="noopener noreferrer">
                 Marc Olata
+              </a>,{" "}
+              <a href="https://linkedin.com/in/alpharomercoma" target="_blank" rel="noopener noreferrer">
+                Alpha Romer Coma
               </a>,{" "}
               <a href="https://www.linkedin.com/in/isaacong03" target="_blank" rel="noopener noreferrer">
                 Job Isaac Ong
@@ -38,6 +38,10 @@ export default function Home() {
                 Kristoffer Ian Sioson
               </a>
             </span>
+          </p>
+          <p className="text-lg text-gray-500 mb-2">
+            <span className="font-medium">Justine Jude Pura</span> (Project Mentor),{" "}
+            <span className="font-medium">Shaneth Ambat</span> (Course Adviser)
           </p>
           <p className="text-xl text-gray-500 mb-4">
             <a href="https://www.feutech.edu.ph/" target="_blank" rel="noopener noreferrer">
@@ -62,7 +66,7 @@ export default function Home() {
             <FaYoutube className="inline-block mr-2" />
             Video
           </a>
-          <a href="https://www.kaggle.com/datasets/jobisaacong/tiktok-sludge-dataset-500" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <a href="https://doi.org/10.34740/kaggle/dsv/12104583" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaDatabase className="inline-block mr-2" />
             Dataset
           </a>
@@ -77,13 +81,13 @@ export default function Home() {
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Abstract</h3>
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-4 text-md">
-              The proliferation of &rdquo;sludge&rdquo; content in short-form videos featuring multiple, unrelated clips playing simultaneously presents a significant challenge to conventional content moderation systems on platforms like TikTok and YouTube Shorts. This format is engineered to manipulate recommendation algorithms and circumvent moderation by creating deliberate audiovisual mismatches, a tactic that unimodal analysis tools fail to reliably detect. This research addresses this gap by developing and evaluating Visual-Qwen, a novel multimodal deep learning architecture augmented with attention mechanisms for the automated recognition of sludge videos.
+              The proliferation of &ldquo;sludge&rdquo; content in short-form videos featuring multiple, unrelated clips playing simultaneously presents a significant challenge to conventional content moderation systems on platforms like TikTok and YouTube Shorts. This format is engineered to manipulate recommendation algorithms and circumvent moderation by creating deliberate audiovisual mismatches, a tactic that unimodal analysis tools fail to reliably detect. This research addresses this gap by developing and evaluating Visual-Qwen, a novel multimodal deep learning architecture augmented with attention mechanisms for the automated recognition of sludge videos.
             </p>
             <p className="mb-4">
-              The proposed model integrates a frozen CLIP ViT-G/14 vision encoder and a Whisper V3 Turbo audio transcription module to extract visual and textual features, respectively. A lightweight Query-Former (Q-Former) acts as a cross-modal attention fusion mechanism, distilling these heterogeneous inputs into a compact set of learned embeddings. These fused features are then projected into a frozen Qwen3-4B large language model, which generates a final classification and a human-readable explanation. To ensure robust and generalizable performance, the model was trained on a custom-built dataset of 2,000 sludge and non-sludge videos, which was ethically sourced, annotated via a human-in-the-loop pipeline, and validated by industry experts against ISO/IEC 25012 data quality standards.
+              The proposed model integrates a frozen CLIP ViT-G/14 vision encoder and a Whisper V3 Turbo audio transcription module to extract visual and textual features, respectively. A lightweight Query-Former (Q-Former) acts as a cross-modal attention fusion mechanism, distilling these heterogeneous inputs into a compact set of learned embeddings. These fused features are then projected into a frozen Qwen3-4B large language model, which generates a final classification and a human-readable explanation. To ensure robust and generalizable performance, the model was trained on a custom-built dataset of 2,000 TikTok and YouTube Shorts videos, evenly balanced between sludge and non-sludge content, ethically sourced and annotated through a human-in-the-loop pipeline with external expert validation.
             </p>
             <p className="mb-4">
-              Evaluated on a held-out test set, the Visual-Qwen model achieved 93.50% accuracy, 91.09% precision, 95.83% recall, and a 93.40% F1-score. Furthermore, evaluations conducted with content creators, content moderators, and machine learning experts confirmed the system&quot;s high utility and trustworthiness, scoring favorably on assessments based on the Technology Acceptance Model (TAM) and ISO/IEC TR 24028 guidelines. This study demonstrates that an attention-augmented multimodal approach can effectively identify complex and evasive content formats, offering a significant contribution to developing more sophisticated and resilient automated content moderation systems.
+              Evaluated on a held-out test set, the Visual-Qwen model achieved 93.50% accuracy, 91.09% precision, 95.83% recall, and a 93.40% F1-score. Furthermore, evaluations conducted with content creators, content moderators, and machine learning experts confirmed the system&apos;s high utility and trustworthiness, scoring favorably on assessments based on the Technology Acceptance Model (TAM) and ISO/IEC TR 24028 guidelines. This study demonstrates that an attention-augmented multimodal approach can effectively identify complex and evasive content formats, offering a significant contribution to developing more sophisticated and resilient automated content moderation systems.
             </p>
           </div>
         </section>
@@ -114,8 +118,7 @@ export default function Home() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Dataset</h3>
           <p className="text-lg text-gray-800 mb-4">
-            The dataset consist of 2000*3 (or 6000) rows of paired multimodal data (video, audio, and text) and is ethically sourced, abiding by the YouTube Researcher Program.
-            It was annotated via a human-in-the-loop pipeline, and validated by Data Scientists against ISO/IEC 25012 data quality standards.
+            A balanced dataset of 2,000 short-form videos (1,000 sludge and 1,000 non-sludge), assembled through ethical scraping from public TikTok and YouTube Shorts feeds in accordance with the YouTube Researcher Program. Each video contributes paired visual, audio, and textual modalities, totaling 6,000 rows of multimodal data. The collection process combined automated platform-API scraping, manual screening, synthetic feature generation with Gemini 2.5 Flash, human verification, and external expert validation. The corpus is split 80% training / 10% validation / 10% test with stratified sampling.
           </p>
 
           <div className="bg-gray-100 p-4 rounded-lg text-center mb-6">
@@ -126,7 +129,7 @@ export default function Home() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Training</h3>
           <p className="text-lg text-gray-800 mb-4">
-            The model was trained on Google Cloud&quot;s TPU v4-64 pods granted by the TPU Research Cloud with MiniGPT&quot;s 5M row dataset and our 2k row fine-tuning dataset, ingested via Cloud Storage FUSE.
+            The model was trained on Google Cloud&apos;s TPU v4-64 pods granted by the TPU Research Cloud, ingested via Cloud Storage FUSE. Training proceeded in two stages: a pre-training stage on the LLaVA image-caption dataset (177 minutes for 4 epochs, training only the linear projection layer while CLIP, Q-Former, and Qwen remained frozen), followed by a fine-tuning stage on the 2,000-video sludge dataset (9.6 minutes for 6 epochs, training only LoRA adapters injected into Qwen). Total training time was approximately 3 hours.
           </p>
 
           <div className="bg-gray-100 p-4 rounded-lg text-center mb-6">
@@ -139,9 +142,9 @@ export default function Home() {
           <h3 className="text-2xl font-bold mb-6 text-gray-900">BibTeX</h3>
           <div className="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto">
             <pre className="text-sm font-mono">
-              {`@article{coma2025visualqwen,
-  title={Visual-Qwen & Sludge-Qwen: Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize "Sludge Content" from Short Form Videos},
-  author={Coma, A.R., Olata, M., Sioson, K.I. and Ong, J.I.},
+              {`@article{olata2025visualqwen,
+  title={Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize 'Sludge' Videos from Short-Form Content},
+  author={Olata, M. and Coma, A.R. and Ong, J.I. and Sioson, K.I. and Pura, J.J. and Ambat, S.},
   journal={},
   year={2025}
 }`}

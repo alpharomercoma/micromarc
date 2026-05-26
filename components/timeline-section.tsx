@@ -54,7 +54,7 @@ export function TimelineSection() {
     {
       date: "May 2025",
       title: "Expert Validation",
-      description: "Verified with 12 AI/Data experts & 40+ content creators/moderators",
+      description: "Verified with 10 AI/Data experts & 40 content creators/moderators",
       status: "completed",
       icon: Users,
       color: "from-green-500 to-emerald-500",

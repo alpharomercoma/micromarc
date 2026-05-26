@@ -106,7 +106,7 @@ export default function UploadSection() {
         tempVideo.onloadedmetadata = () => {
             if (tempVideo.duration > MAX_VIDEO_DURATION) {
                 URL.revokeObjectURL(url);
-                setError(`Video duration exceeds the maximum limit of ${MAX_VIDEO_DURATION} seconds (5 minutes).`);
+                setError(`Video duration exceeds the maximum limit of ${MAX_VIDEO_DURATION} seconds (1 minute).`);
                 return;
             }
 
@@ -643,7 +643,7 @@ export default function UploadSection() {
                                                             <ExternalLink className="w-12 h-12 text-gray-400 mx-auto mb-2" />
                                                             <p className="text-sm font-medium text-gray-600">Valid Video Link</p>
                                                             <p className="text-xs text-gray-500 mt-1 break-all">{previewUrl}</p>
-                                                            <p className="text-xs text-gray-400 mt-2">Click &rdquo;Analyze Video&rdquo; to process</p>
+                                                            <p className="text-xs text-gray-400 mt-2">Click &ldquo;Analyze Video&rdquo; to process</p>
                                                         </div>
                                                     );
                                                 }
@@ -662,7 +662,7 @@ export default function UploadSection() {
                             </div>
 
                             <div className="mt-6 text-center text-sm text-gray-500">
-                                <p>Supported platforms: YouTube (videos, shorts) and TikTok (Max duration: 5 minutes)</p>
+                                <p>Supported platforms: YouTube (videos, shorts) and TikTok (Max duration: 1 minute)</p>
                             </div>
                         </TabsContent>
                     </Tabs>

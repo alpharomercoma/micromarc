@@ -49,8 +49,7 @@ export function ResearchSection() {
                     <span className="text-sm -500">2025</span>
                   </div>
                   <h4 className="font-semibold text-gray-900 mb-3 text-lg">
-                    Visual-Qwen & Sludge-Qwen:
-                    Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &rdquo;Sludge Content&rdquo; from Short Form Videos
+                    Visual-Qwen: Augmenting Multimodal Deep Learning with Attention Mechanisms to Recognize &ldquo;Sludge&rdquo; Videos from Short-Form Content
                   </h4>
                   <p className="text-sm text-gray-600 mb-4">FEU Institute of Technology - Computer Science Thesis</p>
 
@@ -59,12 +58,12 @@ export function ResearchSection() {
                       <span className="font-medium">Key Contributions:</span>
                     </div>
                     <ul className="text-sm text-gray-600 space-y-1 ml-4">
-                      <li>• Open-source 6k human-model-annotated expert-validated multimodal dataset of short-form videos of sludge & non-sludge content</li>
-                      <li>• Multimodal architecture that leverages attention mechanisms and integrates video and textual features</li>
-                      <li>• Pre-trained Vision-Language Model (Visual-Qwen) that can be fine tuned on various datasets</li>
-                      <li>• Fine tuned model (Sludge-Qwen) for detecting sludge and non-sludge content from short-form videos</li>
-                      <li>• Study in tackling a modern global digital problem with High Acceptance from target audience and experts</li>
-                      <li>• TPU training methodology at FEU Institute of Technology</li>
+                      <li>• Open-source multimodal dataset of 2,000 short-form videos (6k paired video/audio/text rows), human-model-annotated and expert-validated for sludge vs. non-sludge classification</li>
+                      <li>• Novel multimodal architecture (CLIP ViT-G/14 + Whisper V3 Turbo + Q-Former + Qwen3-4B) leveraging cross-modal attention for video content moderation</li>
+                      <li>• Two-stage training pipeline (linear-projection pre-training on LLaVA image-caption pairs + LoRA fine-tuning on custom sludge dataset)</li>
+                      <li>• 93.50% accuracy, 91.09% precision, 95.83% recall, 93.40% F1 on held-out test set</li>
+                      <li>• High acceptance validated under TAM and ISO/IEC TR 24028 standards with content creators, moderators, and ML experts</li>
+                      <li>• TPU v4-64 training methodology at FEU Institute of Technology via the TPU Research Cloud</li>
                     </ul>
                   </div>
 
