@@ -5,7 +5,7 @@ import { FaBookOpen, FaDatabase, FaGithub, FaYoutube } from "react-icons/fa";
 import { IoIosHappy } from "react-icons/io";
 export default function Home() {
   function handleUnavailable() {
-    alert("The Paper, Code, Video, and Model are being finalized. Please check back from mid-July of 2025 onwards.");
+    alert("The Code, Video, and Model are being finalized. Please check back from mid-July of 2025 onwards.");
   }
   return (
     <main className="min-h-screen bg-white">
@@ -54,7 +54,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {/* center the text in the button */}
           {/* alert popup that the paper is not yet available on click */}
-          <a href="#" onClick={handleUnavailable} className="bg-blue-600 flex items-center justify-center hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <a href="/visual-qwen-paper.pdf" target="_blank" rel="noopener noreferrer" className="bg-blue-600 flex items-center justify-center hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaBookOpen className="inline-block mr-2" />
             Paper
           </a>
