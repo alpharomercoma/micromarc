@@ -6,6 +6,7 @@ import { FaBookOpen, FaDatabase, FaGithub, FaImage, FaPlay, FaYoutube } from "re
 import { IoIosHappy } from "react-icons/io";
 export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [posterOpen, setPosterOpen] = useState(false);
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -65,10 +66,10 @@ export default function Home() {
             <FaYoutube className="inline-block mr-2" />
             Video
           </button>
-          <a href="/poster.pdf" target="_blank" rel="noopener noreferrer" className="bg-purple-600 flex items-center justify-center hover:bg-purple-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <button onClick={() => setPosterOpen(true)} className="bg-purple-600 flex items-center justify-center hover:bg-purple-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaImage className="inline-block mr-2" />
             Poster
-          </a>
+          </button>
           <a href="https://doi.org/10.34740/kaggle/dsv/12104583" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaDatabase className="inline-block mr-2" />
             Dataset
@@ -255,6 +256,44 @@ export default function Home() {
               Your browser does not support HTML5 video.
               <a href="/avp.mp4" download>Download the video</a> instead.
             </video>
+          </div>
+        </div>
+      )}
+
+      {/* Research poster modal — same dim backdrop; image scales to viewport */}
+      {posterOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+          onClick={() => setPosterOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Research poster"
+        >
+          <div className="relative w-full max-w-3xl my-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setPosterOpen(false)}
+              className="absolute -top-10 right-0 text-white/90 hover:text-white text-3xl leading-none"
+              aria-label="Close poster"
+            >
+              &times;
+            </button>
+            {/* Tall image: contain to viewport on desktop, full-width on mobile */}
+            <Image
+              src="/poster.jpg"
+              alt="Visual-Qwen research poster"
+              width={1651}
+              height={2335}
+              priority
+              className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl bg-white"
+            />
+            <a
+              href="/poster.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute -top-10 left-0 text-white/90 hover:text-white text-sm underline"
+            >
+              Download PDF
+            </a>
           </div>
         </div>
       )}
