@@ -84,10 +84,10 @@ export default function Home() {
               The proliferation of &ldquo;sludge&rdquo; content in short-form videos featuring multiple, unrelated clips playing simultaneously presents a significant challenge to conventional content moderation systems on platforms like TikTok and YouTube Shorts. This format is engineered to manipulate recommendation algorithms and circumvent moderation by creating deliberate audiovisual mismatches, a tactic that unimodal analysis tools fail to reliably detect. This research addresses this gap by developing and evaluating Visual-Qwen, a novel multimodal deep learning architecture augmented with attention mechanisms for the automated recognition of sludge videos.
             </p>
             <p className="mb-4">
-              The proposed model integrates a frozen CLIP ViT-G/14 vision encoder and a Whisper V3 Turbo audio transcription module to extract visual and textual features, respectively. A lightweight Query-Former (Q-Former) acts as a cross-modal attention fusion mechanism, distilling these heterogeneous inputs into a compact set of learned embeddings. These fused features are then projected into a frozen Qwen3-4B large language model, which generates a final classification and a human-readable explanation. To ensure robust and generalizable performance, the model was trained on a custom-built dataset of 2,000 TikTok and YouTube Shorts videos, evenly balanced between sludge and non-sludge content, ethically sourced and annotated through a human-in-the-loop pipeline with external expert validation.
+              The proposed model integrates a frozen EVA-CLIP-G/14 vision encoder (via the BLIP-2 bundle from Salesforce/blip2-opt-2.7b) and a Whisper V3 Turbo audio transcription module to extract visual and textual features, respectively. A lightweight Query-Former (Q-Former) acts as a cross-modal attention fusion mechanism, distilling these heterogeneous inputs into a compact set of learned embeddings. These fused features are then projected into a frozen Qwen3-4B large language model, which generates a final classification and a human-readable explanation. To ensure robust and generalizable performance, the model was trained on a custom-built dataset of 2,000 TikTok and YouTube Shorts videos, evenly balanced between sludge and non-sludge content, ethically sourced and annotated through a human-in-the-loop pipeline with external expert validation.
             </p>
             <p className="mb-4">
-              Evaluated on a held-out test set, the Visual-Qwen model achieved 93.50% accuracy, 91.09% precision, 95.83% recall, and a 93.40% F1-score. Furthermore, evaluations conducted with content creators, content moderators, and machine learning experts confirmed the system&apos;s high utility and trustworthiness, scoring favorably on assessments based on the Technology Acceptance Model (TAM) and ISO/IEC TR 24028 guidelines. This study demonstrates that an attention-augmented multimodal approach can effectively identify complex and evasive content formats, offering a significant contribution to developing more sophisticated and resilient automated content moderation systems.
+              Evaluated on the held-out 300-video test set (Kaggle stratified split), Visual-Qwen achieved 99.04% frame-level accuracy, 99.19% precision, 99.22% recall, and a 99.21% F1-score, with 99.00% accuracy at the video level (majority vote across frames). A vision-only ablation of the same architecture, trained without the audio transcript modality, achieved 89.00% frame-level accuracy and 93.40% F1, isolating the contribution of the Whisper-V3-Turbo transcripts. Furthermore, evaluations conducted with content creators, content moderators, and machine learning experts confirmed the system&apos;s high utility and trustworthiness, scoring favorably on assessments based on the Technology Acceptance Model (TAM) and ISO/IEC TR 24028 guidelines. This study demonstrates that an attention-augmented multimodal approach can effectively identify complex and evasive content formats, offering a significant contribution to developing more sophisticated and resilient automated content moderation systems.
             </p>
           </div>
         </section>
@@ -107,8 +107,56 @@ export default function Home() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Model</h3>
           <p className="text-lg text-gray-800 mb-4">
-            Visual-Qwen consists of a frozen CLIP ViT-G/14 vision encoder and a Whisper V3 Turbo audio transcription module, a lightweight Query-Former (Q-Former), and a frozen Qwen3-4B large language model.
+            Visual-Qwen consists of a frozen EVA-CLIP-G/14 vision encoder, a Whisper V3 Turbo audio transcription module, a lightweight Query-Former (Q-Former), and a frozen Qwen3-4B large language model. The vision encoder and Q-Former are inherited from the BLIP-2 bundle (<code>Salesforce/blip2-opt-2.7b</code>) and remain frozen at every stage. Only the linear projection layer (stage&nbsp;1) and a low-rank Qwen3-4B adapter (stage&nbsp;2) are trained.
           </p>
+
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full text-sm md:text-base text-left text-gray-700 border border-gray-200 rounded-lg">
+              <thead className="bg-gray-100 text-gray-800 font-semibold">
+                <tr>
+                  <th className="px-4 py-3">Component</th>
+                  <th className="px-4 py-3">Output shape</th>
+                  <th className="px-4 py-3">Hidden size</th>
+                  <th className="px-4 py-3">Trainable?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-gray-200">
+                  <td className="px-4 py-3">EVA-CLIP-G/14 vision encoder</td>
+                  <td className="px-4 py-3"><code>(B, 257, 1408)</code></td>
+                  <td className="px-4 py-3">1408</td>
+                  <td className="px-4 py-3">Frozen</td>
+                </tr>
+                <tr className="border-t border-gray-200 bg-gray-50">
+                  <td className="px-4 py-3">Q-Former (12 layers, 32 query tokens)</td>
+                  <td className="px-4 py-3"><code>(B, 32, 768)</code></td>
+                  <td className="px-4 py-3">768</td>
+                  <td className="px-4 py-3">Frozen</td>
+                </tr>
+                <tr className="border-t border-gray-200">
+                  <td className="px-4 py-3">Linear projector</td>
+                  <td className="px-4 py-3"><code>(B, 32, 2560)</code></td>
+                  <td className="px-4 py-3">768 &rarr; 2560</td>
+                  <td className="px-4 py-3">Trained stage&nbsp;1; frozen stage&nbsp;2</td>
+                </tr>
+                <tr className="border-t border-gray-200 bg-gray-50">
+                  <td className="px-4 py-3">Whisper V3 Turbo transcript</td>
+                  <td className="px-4 py-3">Qwen text tokens</td>
+                  <td className="px-4 py-3">&mdash;</td>
+                  <td className="px-4 py-3">Frozen</td>
+                </tr>
+                <tr className="border-t border-gray-200">
+                  <td className="px-4 py-3">Qwen3-4B decoder</td>
+                  <td className="px-4 py-3">Causal LM</td>
+                  <td className="px-4 py-3">2560</td>
+                  <td className="px-4 py-3">Frozen + LoRA (stage&nbsp;2)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-xs text-gray-500 mt-2">
+              The 32 query tokens are a sequence length, not a feature dimension &mdash; the linear projector maps per-token features (768 &rarr; 2560), preserving the 32-token sequence. Visual tokens, Whisper transcript tokens, and instruction tokens are concatenated as the Qwen3-4B input context.
+            </p>
+          </div>
 
           <div className="bg-gray-100 p-4 rounded-lg text-center mb-6">
             <Image src="/images/theoretical_framework.png" alt="Visual-Qwen Architecture" width={1000} height={1000} />
@@ -118,7 +166,7 @@ export default function Home() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Dataset</h3>
           <p className="text-lg text-gray-800 mb-4">
-            A balanced dataset of 2,000 short-form videos (1,000 sludge and 1,000 non-sludge), assembled through ethical scraping from public TikTok and YouTube Shorts feeds in accordance with the YouTube Researcher Program. Each video contributes paired visual, audio, and textual modalities, totaling 6,000 rows of multimodal data. The collection process combined automated platform-API scraping, manual screening, synthetic feature generation with Gemini 2.5 Flash, human verification, and external expert validation. The corpus is split 80% training / 10% validation / 10% test with stratified sampling.
+            A balanced dataset of 2,000 short-form videos (1,000 sludge and 1,000 non-sludge), assembled through ethical scraping from public TikTok and YouTube Shorts feeds in accordance with the YouTube Researcher Program. Each video contributes paired visual, audio, and textual modalities, totaling 6,000 rows of multimodal data. The collection process combined automated platform-API scraping, manual screening, synthetic feature generation with Gemini 2.5 Flash, human verification, and external expert validation. The corpus is split 70% training / 15% validation / 15% test (1,400 / 300 / 300 videos) with stratified sampling, matching the official release on Kaggle.
           </p>
 
           <div className="bg-gray-100 p-4 rounded-lg text-center mb-6">
@@ -129,7 +177,7 @@ export default function Home() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Training</h3>
           <p className="text-lg text-gray-800 mb-4">
-            The model was trained on Google Cloud&apos;s TPU v4-64 pods granted by the TPU Research Cloud, ingested via Cloud Storage FUSE. Training proceeded in two stages: a pre-training stage on the LLaVA image-caption dataset (177 minutes for 4 epochs, training only the linear projection layer while CLIP, Q-Former, and Qwen remained frozen), followed by a fine-tuning stage on the 2,000-video sludge dataset (9.6 minutes for 6 epochs, training only LoRA adapters injected into Qwen). Total training time was approximately 3 hours.
+            The model was trained on Google Cloud&apos;s TPU v4-64 pods granted by the TPU Research Cloud, ingested via Cloud Storage FUSE. Training proceeded in two stages: a pre-training stage on the LLaVA image-caption dataset (177 minutes for 4 epochs, training only the linear projection layer while EVA-CLIP-G/14, Q-Former, and Qwen3-4B remained frozen), followed by a fine-tuning stage on the 2,000-video sludge dataset (9.6 minutes for 6 epochs, training only LoRA adapters injected into Qwen3-4B). Total training time was approximately 3 hours.
           </p>
 
           <div className="bg-gray-100 p-4 rounded-lg text-center mb-6">
