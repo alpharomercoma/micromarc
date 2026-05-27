@@ -5,7 +5,7 @@ import { FaBookOpen, FaDatabase, FaGithub, FaYoutube } from "react-icons/fa";
 import { IoIosHappy } from "react-icons/io";
 export default function Home() {
   function handleUnavailable() {
-    alert("The Code, Video, and Model are being finalized. Please check back from mid-July of 2025 onwards.");
+    alert("The video presentation is being finalized. Please check back soon.");
   }
   return (
     <main className="min-h-screen bg-white">
@@ -58,7 +58,7 @@ export default function Home() {
             <FaBookOpen className="inline-block mr-2" />
             Paper
           </a>
-          <a href="#" onClick={handleUnavailable} className="bg-gray-800 flex items-center justify-center hover:bg-gray-900 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <a href="https://github.com/alpharomercoma/vqwen-qformer" target="_blank" rel="noopener noreferrer" className="bg-gray-800 flex items-center justify-center hover:bg-gray-900 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaGithub className="inline-block mr-2" />
             Code
           </a>
@@ -70,7 +70,7 @@ export default function Home() {
             <FaDatabase className="inline-block mr-2" />
             Dataset
           </a>
-          <a href="#" onClick={handleUnavailable} className="bg-green-600 flex items-center justify-center hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <a href="https://huggingface.co/alpharomercoma/vqwen-qformer-tiktok-v2" target="_blank" rel="noopener noreferrer" className="bg-green-600 flex items-center justify-center hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <IoIosHappy className="inline-block mr-2" />
             Model
           </a>
