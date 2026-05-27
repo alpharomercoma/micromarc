@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Database, ExternalLink, FileText, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,15 +15,16 @@ export function Footer() {
           {/* Company info with logo */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
+              <div className="bg-white rounded-lg px-3 py-1 inline-flex items-center">
+                <Image
+                  src="/logo.png"
+                  alt="MicroMarc Research"
+                  width={140}
+                  height={40}
+                  className="h-9 w-auto object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold">
-                <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                  MicroMarc
-                </span>{" "}
-                Research
-              </h3>
+              <h3 className="text-xl font-bold text-gray-200">Research</h3>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed text-sm">
               Advancing AI-powered content moderation through rigorous academic research. Combating internet brain rot

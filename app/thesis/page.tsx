@@ -1,12 +1,11 @@
 "use client";
 import { Navigation } from "@/components/navigation";
 import Image from "next/image";
-import { FaBookOpen, FaDatabase, FaGithub, FaYoutube } from "react-icons/fa";
+import { useState } from "react";
+import { FaBookOpen, FaDatabase, FaGithub, FaImage, FaPlay, FaYoutube } from "react-icons/fa";
 import { IoIosHappy } from "react-icons/io";
 export default function Home() {
-  function handleUnavailable() {
-    alert("The video presentation is being finalized. Please check back soon.");
-  }
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -62,9 +61,13 @@ export default function Home() {
             <FaGithub className="inline-block mr-2" />
             Code
           </a>
-          <a href="#" onClick={handleUnavailable} className="bg-red-600 flex items-center justify-center hover:bg-red-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <button onClick={() => setVideoOpen(true)} className="bg-red-600 flex items-center justify-center hover:bg-red-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaYoutube className="inline-block mr-2" />
             Video
+          </button>
+          <a href="/poster.pdf" target="_blank" rel="noopener noreferrer" className="bg-purple-600 flex items-center justify-center hover:bg-purple-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+            <FaImage className="inline-block mr-2" />
+            Poster
           </a>
           <a href="https://doi.org/10.34740/kaggle/dsv/12104583" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaDatabase className="inline-block mr-2" />
@@ -93,15 +96,27 @@ export default function Home() {
         </section>
 
         {/* Video Presentation Section */}
-        {/* <section className="mb-12">
+        <section className="mb-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-900">Video Presentation</h3>
-          <div className="bg-gray-100 p-8 rounded-lg text-center">
-            <div className="aspect-video bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
-              <span className="text-gray-600 text-lg">Video Content Placeholder</span>
+          <button
+            onClick={() => setVideoOpen(true)}
+            className="group relative block w-full aspect-video rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+            aria-label="Play video presentation"
+          >
+            <Image
+              src="/avp-poster.jpg"
+              alt="Video presentation thumbnail"
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 group-hover:bg-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                <FaPlay className="text-red-600 text-xl md:text-2xl ml-1" />
+              </div>
             </div>
-            <p className="text-gray-600">Video presentation would be embedded here</p>
-          </div>
-        </section> */}
+          </button>
+        </section>
 
         {/* Model Section */}
         <section className="mb-12">
@@ -210,6 +225,39 @@ export default function Home() {
           </p>
         </section>
       </div>
+
+      {/* Video presentation modal — backdrop dims page; click outside or X to close */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setVideoOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Video presentation"
+        >
+          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-10 right-0 text-white/90 hover:text-white text-3xl leading-none"
+              aria-label="Close video"
+            >
+              &times;
+            </button>
+            <video
+              src="/avp.mp4"
+              poster="/avp-poster.jpg"
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              className="w-full h-auto rounded-lg shadow-2xl bg-black"
+            >
+              Your browser does not support HTML5 video.
+              <a href="/avp.mp4" download>Download the video</a> instead.
+            </video>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
