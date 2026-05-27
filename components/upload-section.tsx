@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Play } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Live demo lives on Hugging Face Spaces (free CPU). Vercel cannot host
 // the 4B-parameter model itself; this iframe embeds the Space directly.
@@ -11,6 +11,14 @@ const SPACE_URL = "https://alpharomercoma-vqwen-qformer.hf.space";
 
 export default function UploadSection() {
     const [demoOpen, setDemoOpen] = useState(false);
+
+    // Pre-warm the HF Space on mount so the container is already building
+    // (or already running) by the time the user clicks "Open Live Demo".
+    // Free Spaces sleep after 48 h of inactivity; a build cold-start is
+    // 3-5 min. no-cors fire-and-forget — we don't need the response.
+    useEffect(() => {
+        fetch(SPACE_URL, { mode: "no-cors", cache: "no-store" }).catch(() => {});
+    }, []);
 
     return (
         <>
