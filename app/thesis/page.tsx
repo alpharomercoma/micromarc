@@ -70,7 +70,7 @@ export default function Home() {
             <FaImage className="inline-block mr-2" />
             Poster
           </button>
-          <a href="https://doi.org/10.34740/kaggle/dsv/12104583" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
+          <a href="https://doi.org/10.34740/kaggle/dsv/16498364" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 flex items-center justify-center hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
             <FaDatabase className="inline-block mr-2" />
             Dataset
           </a>
