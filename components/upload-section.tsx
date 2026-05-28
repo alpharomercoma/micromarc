@@ -33,7 +33,7 @@ export default function UploadSection() {
                     </Badge>
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Upload Your Video</h2>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Demo with our fine-tuned multimodal model specializing in recognizing sludge videos &mdash; a subtype of internet brain rot that grabs attention by presenting multiple streams of visual clips (e.g.&nbsp;Subway Surfers, Family Guy, soap-cutting).
+                        Run our fine-tuned multimodal model on your own clip. It looks for sludge: short-form video that stacks unrelated streams together (think Subway Surfers under Family Guy under soap-cutting) to defeat single-modality moderators.
                     </p>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default function UploadSection() {
                             Open Live Demo
                         </Button>
                         <p className="text-sm text-gray-500 max-w-md">
-                            Hosted on Hugging Face Spaces (free CPU). Inference takes ~3&ndash;5&nbsp;minutes per video &mdash; please be patient.
+                            Hosted on Hugging Face Spaces (free CPU). Inference takes about 1 to 2 minutes per video on the default settings, longer with deep analysis.
                         </p>
                         <a
                             href={SPACE_URL}
@@ -58,7 +58,7 @@ export default function UploadSection() {
                             rel="noopener noreferrer"
                             className="text-sm text-gray-400 hover:text-gray-600 inline-flex items-center gap-1"
                         >
-                            Or open in a new tab <ExternalLink className="w-3 h-3" />
+                            Open in a new tab <ExternalLink className="w-3 h-3" />
                         </a>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ export default function UploadSection() {
                             className="absolute -top-10 right-0 text-white/90 hover:text-white text-3xl leading-none"
                             aria-label="Close live demo"
                         >
-                            &times;
+                            ×
                         </button>
                         <a
                             href={SPACE_URL}
@@ -91,7 +91,7 @@ export default function UploadSection() {
                             rel="noopener noreferrer"
                             className="absolute -top-10 left-0 text-white/90 hover:text-white text-sm underline"
                         >
-                            Open in new tab &nearr;
+                            Open in new tab ↗
                         </a>
                         <iframe
                             src={SPACE_URL}

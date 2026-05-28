@@ -158,7 +158,7 @@ export default function Home() {
                 <tr className="border-t border-gray-200 bg-gray-50">
                   <td className="px-4 py-3">Whisper V3 Turbo transcript</td>
                   <td className="px-4 py-3">Qwen text tokens</td>
-                  <td className="px-4 py-3">&mdash;</td>
+                  <td className="px-4 py-3">n/a</td>
                   <td className="px-4 py-3">Frozen</td>
                 </tr>
                 <tr className="border-t border-gray-200">
@@ -170,7 +170,7 @@ export default function Home() {
               </tbody>
             </table>
             <p className="text-xs text-gray-500 mt-2">
-              The 32 query tokens are a sequence length, not a feature dimension &mdash; the linear projector maps per-token features (768 &rarr; 2560), preserving the 32-token sequence. Visual tokens, Whisper transcript tokens, and instruction tokens are concatenated as the Qwen3-4B input context.
+              The 32 query tokens are a sequence length, not a feature dimension. The linear projector maps per-token features (768 to 2560), preserving the 32-token sequence. Visual tokens, Whisper transcript tokens, and instruction tokens are concatenated as the Qwen3-4B input context.
             </p>
           </div>
 
