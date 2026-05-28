@@ -10,22 +10,22 @@ export function TeamSection() {
     },
     {
       name: "Marc Olata",
-      role: "Founder & CEO",
+      role: "Project Manager",
       image: "/images/team/olata.png",
     },
     {
       name: "Alpha Romer Coma",
-      role: "Founding Engineer",
+      role: "Technical Lead",
       image: "/images/team/coma.jpg",
     },
     {
       name: "Job Isaac Ong",
-      role: "Founding Data Scientist",
+      role: "Data Engineer",
       image: "/images/team/ong.jpg",
     },
     {
       name: "Kristoffer Ian Sioson",
-      role: "Founding Data Scientist",
+      role: "Data Analyst",
       image: "/images/team/sioson.png",
     },
   ];
