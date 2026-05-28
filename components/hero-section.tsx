@@ -97,7 +97,7 @@ export function HeroSection() {
           {/* Quick stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-4 pt-8 border-t border-gray-100">
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">99.04%</div>
+              <div className="text-2xl font-bold text-blue-600">96.67%</div>
               <div className="text-sm text-gray-600">Accuracy Rate on Sludge Content</div>
             </div>
             <div className="text-center">

@@ -61,7 +61,7 @@ export function ResearchSection() {
                       <li>• Open-source multimodal dataset of 2,000 short-form videos (6k paired video/audio/text rows), human-model-annotated and expert-validated for sludge vs. non-sludge classification</li>
                       <li>• Novel multimodal architecture (EVA-CLIP-G/14 + Whisper V3 Turbo + Q-Former + Qwen3-4B) leveraging cross-modal attention for video content moderation</li>
                       <li>• Two-stage training pipeline (linear-projection pre-training on LLaVA image-caption pairs + LoRA fine-tuning on custom sludge dataset)</li>
-                      <li>• 99.04% accuracy, 99.19% precision, 99.22% recall, 99.21% F1 on the held-out test set (frame-level); 99.00% video-level accuracy</li>
+                      <li>• 96.67% accuracy (95% CI 94.33&ndash;98.67), 95.58% precision, 98.86% recall, 97.19% F1 on the 300-video held-out test set (video-level, majority vote over 4 frames)</li>
                       <li>• High acceptance validated under TAM and ISO/IEC TR 24028 standards with content creators, moderators, and ML experts</li>
                       <li>• TPU v4-64 training methodology at FEU Institute of Technology via the TPU Research Cloud</li>
                     </ul>
